@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--<suite name = "SimpleTestSuiteForGoogle" parallel="method" thread-count="2">-->
+<!--как добавить несколько сьютов????-->
+<suite name = "SimpleTestSuiteForGoogle" parallel="false">
+    <test name = "SimpleTest">
+        <classes>
+            <class name = "e2e_tests.google.GoogleTest"/>
+        </classes>
+    </test>
+    <test name = "DressPracticeSimpleTest">
+        <classes>
+            <class name = "e2e_tests.automationpractice.WebPracticeTest"/>
+        </classes>
+    </test>
+</suite>
+
