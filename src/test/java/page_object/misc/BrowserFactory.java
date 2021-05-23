@@ -11,15 +11,17 @@ import java.util.concurrent.TimeUnit;
 
 public class BrowserFactory {
     private static Map<String, WebDriver> drivers = new HashMap<String, WebDriver>();
-
+    //driver for current driver session
+    private static WebDriver driver = null;
     /*
      * Factory method for getting browsers
      */
     public static WebDriver getBrowser(String browserName) {
-        WebDriver driver = null;
-
         switch (browserName) {
-            case "Chrome":
+            case "Firefox":
+                //use Firefox as example
+                break;
+            default:
                 driver = drivers.get("Chrome");
                 if (driver == null) {
                     //set chrome options
@@ -30,11 +32,10 @@ public class BrowserFactory {
                     driver = new ChromeDriver();
                     drivers.put("Chrome", driver);
                 }
-                break;
         }
         driver.manage().window().maximize();
-        //задержка на выполнение теста = 3 сек. имплисит вейт как идеальные условия!!!!TODO:
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        //задержка на выполнение теста = 5 сек. имплисит вейт как идеальные условия!!!!TODO:
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         return driver;
     }
@@ -45,4 +46,25 @@ public class BrowserFactory {
             drivers.get(key).quit();
         }
     }
+    //Closing only exist session
+    public static void closeDriver() {
+        driver.quit();
+    }
+    //TODO: as Additional browser option
+//    /**
+//     * Creates {@link WebDriver} instance with timeout and browser window configurations.
+//     *
+//     * @return New instance of {@link EventFiringWebDriver} object. Driver type is based on passed parameters
+//     * to the automation project, returns {@link ChromeDriver} instance by default.
+//     */
+//    public static EventFiringWebDriver getConfiguredDriver() throws UnsupportedOperationException {
+//        WebDriver driver = getDriver();
+//        //driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        EventFiringWebDriver wrappedDriver = new EventFiringWebDriver(driver);
+//
+//        wrappedDriver.register(new EventHandler());
+//
+//        return wrappedDriver;
+//    }
 }

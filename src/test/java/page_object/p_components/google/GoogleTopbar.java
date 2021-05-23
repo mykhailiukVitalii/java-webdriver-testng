@@ -1,4 +1,4 @@
-package page_object.p_components;
+package page_object.p_components.google;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

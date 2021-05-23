@@ -1,5 +1,7 @@
 package page_object.misc;
 
+import org.testng.Assert;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -21,7 +23,12 @@ public class ConfProperties {
                 try {
                     fileInputStream.close();
                 } catch (IOException e) {
-                    e.printStackTrace(); } } }
+                    e.printStackTrace();
+                }
+            //TODO: сюда ли добавил Феил
+//            Assert.fail();
+        }
+    }
     /**
      * метод для возврата строки со значением из файла с настройками
      */

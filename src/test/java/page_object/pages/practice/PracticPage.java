@@ -1,4 +1,4 @@
-package page_object.pages;
+package page_object.pages.practice;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +16,7 @@ public class PracticPage {
     //todo: description
     public void openHomePage() {
         // Open Google home page
-        this.driver.get(ConfProperties.getProperty("homePracticepage"));
+        driver.get(ConfProperties.getProperty("homePracticepage"));
     }
     //TODO: to separate file as PracticeMainPage.java
     /**

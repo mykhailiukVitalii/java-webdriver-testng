@@ -6,13 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import page_object.misc.ConfProperties;
-import page_object.p_components.GoogleResults;
-import page_object.p_components.GoogleTopbar;
-import page_object.pages.GooglePage;
+import page_object.p_components.google.GoogleResults;
+import page_object.p_components.google.GoogleTopbar;
+import page_object.pages.google.GooglePage;
 
 import java.util.concurrent.TimeUnit;
 

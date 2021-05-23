@@ -1,4 +1,4 @@
-package page_object.pages;
+package page_object.pages.practice;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,15 +12,19 @@ import java.util.List;
 
 public class PracticeDressPage {
     private final WebDriver driver;
+    private WebDriverWait wait;
 
     public PracticeDressPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
+        //TODO: use no hurdcode value for the timeout: 10
+        this.wait = new WebDriverWait(driver, 10);
     }
-    //todo: description
-    public void openSummerDressesPage() {
-        // Open Google home page
-        this.driver.get(ConfProperties.getProperty("summerDressPracticepage"));
+    //Open PracticeDressPage page
+    public PracticeDressPage openSummerDressesPage(String url) {
+        driver.get(url);
+
+        return this;
     }
 
     /**
@@ -32,11 +36,15 @@ public class PracticeDressPage {
     /**
      * метод возвращающий колличество элементов product на странице
      */
-    public int productList(int timeout) {
-        //Wait produst to be displayed.
-        new WebDriverWait(driver, timeout)
-                .until(ExpectedConditions.visibilityOf(dressesList.get(0)));
+    public int productList() {
+        //Wait product to be displayed.
+        wait.until(ExpectedConditions.visibilityOf(dressesList.get(0)));
 
         return dressesList.size();
     }
 }
+
+//    Click Women
+//    Добавить каждый второй товар(сохранить наименования)
+//    Переходим в корзину
+//        Проверяем товары в корзине

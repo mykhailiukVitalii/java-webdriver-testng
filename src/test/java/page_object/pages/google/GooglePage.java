@@ -1,4 +1,4 @@
-package page_object.pages;
+package page_object.pages.google;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
